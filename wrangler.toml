@@ -1,0 +1,12 @@
+name = "proxy"
+main = "src/index.ts"
+compatibility_date = "2022-05-15"
+
+[vars]
+BASE_URL = "http://localhost:8787/"
+
+[env.production]
+name="proxy"
+
+[env.production.vars]
+BASE_URL = "https://proxy.blrb.workers.dev/"
