@@ -1,10 +1,8 @@
 export default function getHandler(url: string) {
   return async (request: Request) => {
-    console.log(`downloader called for ${url}`);
-
     try {
-      const response = await fetch(url);
-
+      const proxyRequest = new Request(url, request);
+      const response = await fetch(proxyRequest);
       const { readable, writable } = new TransformStream();
       response.body?.pipeTo(writable);
 
